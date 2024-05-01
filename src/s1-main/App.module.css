@@ -1,11 +1,16 @@
 .App {
-    --header_height: 60px;
+  --header_height: 60px;
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100%;
 }
 
 .hw {
-
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
 }
 
 .hwTitle {
-
 }
