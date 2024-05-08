@@ -1,33 +1,20 @@
 import React, { useState } from "react";
 import Affairs from "./affairs/Affairs";
+import s from "./affairs/Affairs.module.css";
 import s2 from "../../s1-main/App.module.css";
 
-/*
- * 1 - описать типы AffairPriorityType, AffairType
- * 2 - указать нужный тип для defaultAffairs
- * 3 - дописать типы и логику функции filterAffairs и проверить её тестами
- * 4 - выполнить пункт 3 для функции deleteAffair
- * 5 - указать нужный тип в useState с affairs
- * 6 - дописать тип и логику функции deleteAffairCallback
- * 7 - в файле Affairs.tsx дописать типизацию пропсов
- * 8 - в файле Affairs.tsx дописать логику функций setAll, setHigh, setMiddle, setLow
- * 9 - в файле Affair.tsx дописать типизацию пропсов
- * 10 - в файле Affair.tsx дописать функции deleteCallback и использовать
- * 11 - в файле Affair.tsx отобразить приходящие данные
- * */
-
 // types
-export type AffairPriorityType = "high" | "low" | "middle"; // need to fix any
+export type AffairPriorityType = any; // 'high' | 'low' | 'middle' // need to fix any
 export type AffairType = {
-  _id: number; // need to fix any
-  name: string; // need to fix any
+  _id: any; // number // need to fix any
+  name: any; // string // need to fix any
   priority: AffairPriorityType;
 };
 export type FilterType = "all" | AffairPriorityType;
 
 // constants
-const defaultAffairs: Array<AffairType> = [
-  // need to fix any
+const defaultAffairs: any = [
+  // need to fix any // AffairType[]
   { _id: 1, name: "React", priority: "high" }, // студенты могут изменить содержимое name и количество элементов в массиве, ...priority не менять!
   { _id: 2, name: "anime", priority: "low" },
   { _id: 3, name: "games", priority: "low" },
@@ -36,33 +23,28 @@ const defaultAffairs: Array<AffairType> = [
 ];
 
 // pure helper functions
-export const filterAffairs = (
-  affairs: Array<AffairType>,
-  filter: FilterType
-): Array<AffairType> => {
-  if (filter === "all") return affairs;
+export const filterAffairs = (affairs: any, filter: any): any => {
+  if (filter === "all") return affairs; // создаёт студент
+  else if (filter === "low") return affairs.filter((a) => a.priority === "low");
   else if (filter === "middle")
     return affairs.filter((a) => a.priority === "middle");
-  else if (filter === "low") return affairs.filter((a) => a.priority === "low");
   else if (filter === "high")
     return affairs.filter((a) => a.priority === "high");
-  else return affairs;
-};
 
-export const deleteAffair = (
-  affairs: Array<AffairType>,
-  _id: number
-): AffairType[] => {
-  return affairs.filter((el) => el._id !== _id);
+  // need to fix // создаёт студент
+};
+export const deleteAffair = (affairs: any, _id: any): any => {
+  // need to fix any // (affairs: AffairType[], _id: number): AffairType[]
+  return affairs.filter((a: any) => a._id !== _id); // need to fix // создаёт студент
 };
 
 function HW2() {
-  const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs); // need to fix any
-  const [filter, setFilter] = useState<FilterType>("all");
+  const [affairs, setAffairs] = useState<any>(defaultAffairs); // need to fix any // AffairType[]
+  const [filter, setFilter] = useState<any>("all"); // need to fix any // FilterType
 
   const filteredAffairs = filterAffairs(affairs, filter);
-  const deleteAffairCallback = (_id: number) =>
-    setAffairs(deleteAffair(affairs, _id));
+  const deleteAffairCallback = (_id: any) =>
+    setAffairs(deleteAffair(affairs, _id)); // need to fix any // number
 
   return (
     <div id={"hw2"}>
@@ -75,6 +57,7 @@ function HW2() {
           filter={filter}
         />
       </div>
+      {/*не менять*/}
     </div>
   );
 }
