@@ -40,11 +40,13 @@ export const filterAffairs = (
   affairs: Array<AffairType>,
   filter: FilterType
 ): Array<AffairType> => {
-  if (filter === "all") {
-    return affairs;
-  } else {
-    return affairs.filter((el) => el.priority === filter);
-  }
+  if (filter === "all") return affairs;
+  else if (filter === "middle")
+    return affairs.filter((a) => a.priority === "middle");
+  else if (filter === "low") return affairs.filter((a) => a.priority === "low");
+  else if (filter === "high")
+    return affairs.filter((a) => a.priority === "high");
+  else return affairs;
 };
 
 export const deleteAffair = (
