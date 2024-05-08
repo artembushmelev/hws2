@@ -41,13 +41,16 @@ export const filterAffairs = (
   filter: FilterType
 ): Array<AffairType> => {
   if (filter === "all") {
-    return [...affairs];
+    return affairs;
   } else {
     return affairs.filter((el) => el.priority === filter);
   }
 };
 
-export const deleteAffair = (affairs: Array<AffairType>, _id: number): any => {
+export const deleteAffair = (
+  affairs: Array<AffairType>,
+  _id: number
+): AffairType[] => {
   return affairs.filter((el) => el._id !== _id);
 };
 
@@ -56,10 +59,8 @@ function HW2() {
   const [filter, setFilter] = useState<FilterType>("all");
 
   const filteredAffairs = filterAffairs(affairs, filter);
-  const deleteAffairCallback = (_id: number) => {
-    deleteAffair(affairs, _id);
-    setAffairs(affairs.filter((el) => el._id !== _id));
-  };
+  const deleteAffairCallback = (_id: number) =>
+    setAffairs(deleteAffair(affairs, _id));
 
   return (
     <div id={"hw2"}>
