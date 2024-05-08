@@ -1,6 +1,6 @@
 import React from "react";
 import { AffairType } from "../../HW2";
-import s from "./Affairs.module.css";
+import s from "./Affair.module.css";
 
 type AffairPropsType = {
   // key не нужно типизировать
