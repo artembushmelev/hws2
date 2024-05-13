@@ -25,7 +25,7 @@ export const pureAddUser = (
 export const pureOnBlur = (name: string, setError: any) => {
   // если имя пустое - показать ошибку
   if (name === "") {
-    setError("Title is required");
+    setError("");
   }
 };
 
@@ -53,7 +53,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 
   const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
     // need to fix any
-    setName(e.currentTarget.value.trim()); // need to fix
+    setName(e.currentTarget.value); // need to fix
 
     error && setError("");
   };
