@@ -25,7 +25,7 @@ export const pureAddUser = (
 export const pureOnBlur = (name: string, setError: any) => {
   // если имя пустое - показать ошибку
   if (name === "") {
-    setError("");
+    setError("Title is required");
   }
 };
 
