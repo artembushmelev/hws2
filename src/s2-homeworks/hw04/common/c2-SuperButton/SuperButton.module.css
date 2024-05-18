@@ -9,6 +9,7 @@
 }
 
 .disabled {
+  color: black;
 }
 
 .secondary {
@@ -28,7 +29,7 @@
 }
 
 .default:hover {
-  background-color: #161dd7;
+  background-color: #161728;
   color: #ffffff;
   padding: 5px 10px;
 }
@@ -46,6 +47,7 @@
 }
 
 .default:active {
+  background-color: #1e2492;
 }
 
 .secondary:active {
