@@ -1,7 +1,12 @@
 .input:focus {
+  border: 1px solid rgb(143, 142, 142);
 }
 
 .input {
+  width: 372px;
+  height: 36px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 5px;
 }
 
 .inputWrapper {
@@ -11,10 +16,12 @@
 }
 
 .errorInput {
+  border: 2px solid red;
 }
 
 .errorInput:focus {
 }
 
 .error {
+  color: red;
 }
