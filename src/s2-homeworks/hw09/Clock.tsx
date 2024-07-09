@@ -9,7 +9,8 @@ function Clock() {
   const [date, setDate] = useState<Date>(
     new Date(restoreState("hw9-date", Date.now()))
   );
-  const [show, setShow] = useState<boolean>(true);
+  const [show, setShow] = useState<boolean>(false);
+  console.log(timerId);
 
   let interval: NodeJS.Timeout;
   const start = () => {
@@ -84,14 +85,14 @@ function Clock() {
       <div className={s.buttonsContainer}>
         <SuperButton
           id={"hw9-button-start"}
-          disabled={timerId ? true : false} // пишут студенты // задизэйблить если таймер запущен
+          disabled={timerId !== undefined} // пишут студенты // задизэйблить если таймер запущен
           onClick={start}
         >
           start
         </SuperButton>
         <SuperButton
           id={"hw9-button-stop"}
-          disabled={timerId ? false : true} // пишут студенты // задизэйблить если таймер не запущен
+          disabled={timerId === undefined} // пишут студенты // задизэйблить если таймер не запущен
           onClick={stop}
         >
           stop
